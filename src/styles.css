@@ -4,71 +4,56 @@
 
 body {
   font-family: sans-serif;
-  margin: 20px;
+  color: #333;
+  margin: 2em;
   padding: 0;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
+button {
+  border: 0;
+  background: #222;
+  color: #fff;
+  border-radius: 10pt 10pt;
+  padding: 1em;
+  margin: 0 auto;
 }
 
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+button:hover {
+  background: #666;
 }
 
 .square {
   background: #fff;
+  color: #333;
   border: 1px solid #999;
+  border-radius: 0;
   float: left;
-  font-size: 24px;
+  font-size: 40pt;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
+  height: 75px;
+  margin: 0;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 75px;
+}
+
+.square:hover {
+  background: #efefef;
+}
+
+.regularSquare {
+  background: none;
+}
+
+.winningSquare {
+  background: #fcffcd;
+}
+
+.winningSquare:hover {
+  background: #fcffcd;
 }
 
 .board-row:after {
@@ -78,33 +63,75 @@ body {
 }
 
 .status {
-  margin-bottom: 10px;
+  margin-bottom: 1em;
+  text-align: center;
+  background: #ededed;
+  padding: 0.5em;
 }
+
 .game {
   display: flex;
   flex-direction: row;
 }
 
 .game-info {
-  margin-left: 20px;
+  margin-left: 2em;
 }
 
 ol {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  margin-top: 0.5em;
+  padding: 0;
 }
 
 li {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0.5em;
 }
 
 .reversed {
   flex-direction: column-reverse;
 }
 
-.regularSquare {
-  background: none;
+.coords {
+  margin: 0.5em;
+  padding: 1em;
+  font-size: 0.8em;
 }
 
-.winningSquare {
-  background: #fcffcd;
+li:first-child .coords {
+  background: 0;
+  margin: 0;
+  padding: 0;
+}
+
+li:first-child button {
+  width: 100%;
+}
+
+.current {
+  text-align: center;
+  border-radius: 10pt 10pt;
+  border: 1pt solid #222;
+  padding: 0.9em;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.checkbox:checked {
+  background: #333;
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { JsxFlags } from "typescript";
 
 // Create Square for tic-tac-toe
 // value = X or O, depending on move #
@@ -37,10 +36,11 @@ export default function Game() {
   const [indices, setIndices] = useState([Array(9).fill(null)]);
 
   // Checkbox to toggle descending or ascending order
-  const Checkbox = (state) => {
+  const Toggle = (state) => {
     return (
       <input
         type="checkbox"
+        className="checkbox"
         checked={state.isDescending}
         onChange={() => state.setisDescending(!isDescending)}
         // Notice the onChange and () => syntax here - important to make click functionality work!
@@ -85,7 +85,7 @@ export default function Game() {
     index[8] = { row: 3, col: 3 };
 
     let coords = index.map(({ row, col }, i) => {
-      return "Row: " + index[i].row + " Col: " + index[i].col;
+      return "Row: " + index[i].row + " Column: " + index[i].col;
     });
 
     if (move > 0) {
@@ -100,7 +100,9 @@ export default function Game() {
       currentLocation = "You are at game start";
     }
     return move === currentMove ? (
-      <li key={move}>{currentLocation}</li>
+      <li key={move} className="current">
+        {currentLocation}
+      </li>
     ) : (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
@@ -122,6 +124,14 @@ export default function Game() {
         />
       </div>
       <div className="game-info">
+        <label class="switch" for="moveOrder">
+          <Toggle
+            isDescending={isDescending}
+            setisDescending={setisDescending}
+          />
+          Toggle descending order
+        </label>
+
         {isDescending ? (
           <ol start="0" class="reversed">
             {moves}
@@ -129,19 +139,6 @@ export default function Game() {
         ) : (
           <ol start="0">{moves}</ol>
         )}
-
-        <Checkbox
-          isDescending={isDescending}
-          setisDescending={setisDescending}
-        />
-
-        <label for="moveOrder">
-          {isDescending ? (
-            <>Toggle ascending order</>
-          ) : (
-            <>Toggle descending order</>
-          )}
-        </label>
       </div>
     </div>
   );
