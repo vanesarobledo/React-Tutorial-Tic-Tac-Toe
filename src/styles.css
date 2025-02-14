@@ -7,9 +7,9 @@ body {
   color: #333;
   margin: 0 auto;
   text-align: center;
-  padding: 2em;
 }
 
+/* Button */
 button {
   border: 0;
   background: #222;
@@ -24,6 +24,7 @@ button:hover {
   background: #666;
 }
 
+/* Square */
 .square {
   background: #fff;
   color: #333;
@@ -47,15 +48,13 @@ button:hover {
 }
 
 .regularSquare {
-  background: none;
+  background: #fff;
 }
 
+/* Winning Square */
 .winner .regularSquare,
 .draw .regularSquare {
   background: #ededed;
-}
-.winner .regularSquare {
-  color: #666;
 }
 
 .winner .square:hover,
@@ -71,12 +70,18 @@ button:hover {
   background: #fcffcd;
 }
 
+/* Non-Winning Square */
+.winner .regularSquare {
+  color: #666;
+}
+
 .board-row:after {
   clear: both;
   content: "";
   display: table;
 }
 
+/* Game Status */
 .status {
   margin-bottom: 1em;
   text-align: center;
@@ -85,6 +90,7 @@ button:hover {
   max-width: 300px;
 }
 
+/* Game Board */
 .game {
   display: flex;
   flex-direction: column;
@@ -92,10 +98,7 @@ button:hover {
   margin: 2em;
 }
 
-.game-info {
-  margin-top: 2em;
-}
-
+/* For larger screens */
 @media screen and (min-width: 800px) {
   .game {
     flex-direction: row;
@@ -106,24 +109,32 @@ button:hover {
   }
 }
 
+/* For smaller screens */
 @media screen and (max-width: 800px) {
+  .game-board {
+    margin: 0 auto;
+  }
+  .game-info {
+    margin: 0 auto;
+    margin-top: 2em;
+  }
   button {
-    width: 100%;
+    width: 50%;
   }
 }
 
+/* Game board */
 .game-board {
   min-width: 300px;
-  margin: 0 auto;
 }
 
+/* List of moves */
 ol {
   display: flex;
   flex-direction: column;
   margin: 0;
   margin-top: 0.5em;
   padding: 0;
-  min-width: 400px;
 }
 
 li {
@@ -139,17 +150,16 @@ li {
   flex-direction: column-reverse;
 }
 
+/* Location */
 .coords {
   margin: 0.5em;
-  padding: 1em;
-  font-size: 0.8em;
+  padding: 0.5em;
+  font-size: 0.75em;
   display: block;
 }
 
 li:first-child .coords {
-  background: 0;
-  margin: 0;
-  padding: 0;
+  display: none;
 }
 
 li:first-child button {
@@ -163,6 +173,7 @@ li:first-child button {
   padding: 0.9em;
 }
 
+/* Toggle descending order */
 .switch {
   display: flex;
   align-items: center;
