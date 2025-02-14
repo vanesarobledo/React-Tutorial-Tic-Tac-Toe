@@ -219,7 +219,13 @@ function Board({ xIsNext, squares, onPlay, move, indices }) {
   return (
     <>
       <div className="status">{status}</div>
-      {createBoard()}
+      <div
+        className={
+          "gameBoard " + (winner ? "winner" : "") + (move === 9 ? "draw" : "")
+        }
+      >
+        {createBoard()}
+      </div>
     </>
   );
 }

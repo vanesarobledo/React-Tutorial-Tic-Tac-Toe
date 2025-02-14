@@ -48,11 +48,24 @@ button:hover {
   background: none;
 }
 
+.winner .regularSquare,
+.draw .regularSquare {
+  background: #ededed;
+}
+.winner .regularSquare {
+  color: #666;
+}
+
+.winner .square:hover,
+.draw .regularSquare:hover {
+  background: #ededed;
+}
+
 .winningSquare {
   background: #fcffcd;
 }
 
-.winningSquare:hover {
+.winner .winningSquare:hover {
   background: #fcffcd;
 }
 
